@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oficina de LaTeX</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <p class="etiqueta">OFICINA DE MATEMÁTICA E TECNOLOGIA</p>
+      <h1>Biblioteca de <span>LaTeX</span></h1>
+      <p>Encontre, copie e utilize os códigos da nossa oficina.</p>
+
+      <input
+        type="search"
+        id="pesquisa"
+        placeholder="Pesquisar códigos..."
+        aria-label="Pesquisar códigos"
+      >
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="cabecalho">
+      <div>
+        <h2>Códigos disponíveis</h2>
+        <p id="contador">Exemplos de LaTeX</p>
+      </div>
+
+      <div class="filtros" id="filtros">
+        <button class="filtro ativo" data-categoria="Todos">Todos</button>
+        <button class="filtro" data-categoria="Estrutura">Estrutura</button>
+        <button class="filtro" data-categoria="Texto">Texto</button>
+        <button class="filtro" data-categoria="Matemática">Matemática</button>
+        <button class="filtro" data-categoria="Listas">Listas</button>
+        <button class="filtro" data-categoria="Tabelas">Tabelas</button>
+        <button class="filtro" data-categoria="Imagens">Imagens</button>
+      </div>
+    </section>
+
+    <section id="lista-codigos" class="grade"></section>
+
+    <section class="aviso">
+      <h3>Aprenda praticando!</h3>
+      <p>
+        Escolha um exemplo, clique em Copiar código
+        e cole no seu editor LaTeX.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Oficina de LaTeX · Aprender, testar e criar.
+  </footer>
+
+  <div id="mensagem" class="mensagem" role="status"
+       aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
