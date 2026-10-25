@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;700;800&display=swap');
 
 :root {
-  --roxo: #6654d9;
+  --roxo: #b19d46;
   --roxo-escuro: #292450;
   --fundo: #f5f7fb;
   --texto: #172033;
   --cinza: #657087;
-  --codigo: #111827;
+  --codigo: #3f391a;
 }
 
 * {
@@ -23,18 +23,18 @@ body {
 }
 
 .container {
-  width: min(1100px, 92%);
+  width: min(1600px, 100%);
   margin: auto;
 }
 
 .hero {
-  padding: 55px 0 65px;
+  padding: 30px 0 30px;
   color: white;
-  background: linear-gradient(125deg, #171b32, #45358b);
+  background: linear-gradient(125deg, #322c17, #705c24);
 }
 
 .etiqueta {
-  color: #c8c2ff;
+  color: #d4c155;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -47,7 +47,7 @@ h1 {
 }
 
 h1 span {
-  color: #aaa0ff;
+  color: #d6be33;
 }
 
 .hero p:not(.etiqueta) {
@@ -115,6 +115,7 @@ h2 {
 }
 
 .grade {
+ 
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
@@ -151,7 +152,7 @@ h2 {
   padding: 4px 9px;
   border-radius: 6px;
   background: #efedff;
-  color: #4b3bb5;
+  color: #aca91f;
   font-size: 11px;
   font-weight: 700;
 }
@@ -165,7 +166,7 @@ h2 {
 .rotulo-codigo {
   padding: 9px 18px;
   color: #c9d1e2;
-  background: #20283a;
+  background: #7e7044;
   font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -202,14 +203,14 @@ pre {
   padding: 10px 13px;
   border: 0;
   border-radius: 7px;
-  background: #8173f0;
+  background: #8b8a2b;
   color: white;
   font-weight: 700;
   cursor: pointer;
 }
 
 .copiar:hover {
-  background: #6957df;
+  background: #b4b238;
 }
 
 .copiar.copiado {
@@ -260,7 +261,7 @@ footer {
   max-width: 90%;
   padding: 12px 18px;
   border-radius: 9px;
-  background: #172033;
+  background: #777625;
   color: white;
   opacity: 0;
   transform: translate(-50%, 15px);

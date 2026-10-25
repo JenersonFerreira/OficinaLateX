@@ -1,93 +1,115 @@
 
 const exemplos = [
+  // PRIMEIRO
   {
     titulo: "Documento básico",
     descricao: "Estrutura inicial de um documento LaTeX.",
     categoria: "Estrutura",
-    codigo: String.raw`\documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage[brazil]{babel}
+    codigo: String.raw`
 
-\begin{document}
+\documentclass[10pt,a4paper]{article} % Estilo e opções do documento
 
-Olá, mundo!
+\title{Oficina LaTeX} 
+\author{Andréa, Leandro, Juan e Jenerson}
+\date{October 2026}
 
-\end{document}`
+\begin{document} %  Começo da parte visual do documento
+
+\maketitle % Chamando o titulo e todos seus complementos
+
+\section{Introduction} % Iniciando uma seção no documento 
+
+\end{document} % Fim da parte visual do documento
+`
   },
 
 
 
   {
-    titulo: "Título e seções",
-    descricao: "Organize o documento em seções.",
+    titulo: "Atividade I",
+    descricao: "Código para atividade I.",
     categoria: "Estrutura",
-    codigo: String.raw`\title{Minha atividade}
-\author{Nome do aluno}
-\date{\today}
+      codigo: String.raw`
+    \documentclass[10pt,a4paper]{article} % Estilo e opções do documento
 
-\begin{document}
-\maketitle
+    \usepackage{graphicx} % Required for inserting images
+    \usepackage[brazil]{babel} % Linguagem
+    \usepackage{graphicx} 
+    \usepackage{amsmath, amssymb} % Fórmulas matemáticas
+    \usepackage{geometry} % Margens do documento
+    \usepackage[utf8]{inputenc} % Acentuação do Português
 
-\section{Introdução}
-Texto da introdução.
 
-\subsection{Exemplo}
-Texto da subseção.
-\end{document}`
+    \title{Oficina LaTeX} 
+    \author{Andréa, Leandro, Juan e Jenerson}
+    \date{October 2026}
+
+    \begin{document} %  Começo da parte visual do documento
+
+    \maketitle % Chamando o titulo e todos seus complementos
+
+    \section{Primeira seção} % Iniciando uma seção no documento 
+
+    \end{document} % Fim da parte visual do documento
+    `
   },
 
+   {
+    titulo: "Modo Inline",
+    descricao: "Copie o código abaixo e cole no corpo do documento.",
+    categoria: "Matemática",
+      codigo: String.raw`
+    A energia vem dada por \(E = mc^2\) \\ % ou ; \\ quebrar linha
+    A energia vem dada por $E = mc^2$
+    `
+  },
 
+  {
+    titulo: "Modo Display",
+    descricao: "Copie o código abaixo e cole no corpo do documento.",
+    categoria: "Matemática",
+      codigo: String.raw`
+      A energia vem dada por \[E = mc^2\] \\ % ou 
+      A energia vem dada por $$E = mc^2$$
+    `
+  },
 
+  {
+    titulo: "Frações, expoentes e somatórios",
+    descricao: "Copie o código abaixo e cole no corpo do documento.",
+    categoria: "Matemática",
+      codigo: String.raw`
+      Fração: $\frac{\pi}{2}$ \\ 
+      Expoente: $e^{-i\pi}$ \\
+      Soma: $\[\sum_{x=1}^{\infty} \frac{1}{n}\]$
+
+    `
+  },
 
 
   {
     titulo: "Negrito e itálico",
-    descricao: "Formate palavras e frases.",
+    descricao: "Formate palavras e frases. Copie o código abaixo e cole no corpo do documento",
     categoria: "Texto",
-    codigo: String.raw`\textbf{Texto em negrito}
+    codigo: String.raw`
+    \textbf{Texto em negrito}
 
-\textit{Texto em itálico}
+    \textit{Texto em itálico}
 
-\underline{Texto sublinhado}`
+    \underline{Texto sublinhado}`
   },
 
-
-
-
-
   {
-    titulo: "Frações e raízes",
-    descricao: "Escreva expressões matemáticas.",
-    categoria: "Matemática",
-    codigo: String.raw`\[
-\frac{a}{b}
-\]
-
-\[
-\sqrt{25} = 5
-\]
-
-\[
-x^2 + 5x + 6 = 0
-\]`
-  },
-
-
-
-
-  {
-    titulo: "Lista numerada",
-    descricao: "Crie uma lista com números.",
+    titulo: "Seções e Subseções",
+    descricao: "Organize seu documento em seções e subseções. Copie e cole no corpo do documento.",
     categoria: "Listas",
-    codigo: String.raw`\begin{enumerate}
-  \item Primeiro item
-  \item Segundo item
-  \item Terceiro item
-\end{enumerate}`
+    codigo: String.raw`
+    \section{Títulos}
+        \subsection{SubTítulos}
+          \begin{enumerate}
+            \item Primeiro
+        \end{enumerate}`
   },
-
-
-
 
   {
     titulo: "Lista com marcadores",
@@ -97,43 +119,45 @@ x^2 + 5x + 6 = 0
   \item Primeiro tópico
   \item Segundo tópico
   \item Terceiro tópico
-\end{itemize}`
+\end{itemize}
+
+`
   },
 
-
-
-
   {
-    titulo: "Tabela de duas colunas",
-    descricao: "Tabela com nome e fórmula.",
+    titulo: "Tabela 3x3",
+    descricao: "Tabela com 3 linhas e 3 colunas. Copie e cole no corpo do documento.",
     categoria: "Tabelas",
-    codigo: String.raw`\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-Nome & Fórmula \\ \hline
-        &         \\ \hline
-        &         \\ \hline
-        &         \\ \hline
-        &         \\ \hline
-        &         \\ \hline
-\end{tabular}
-\end{center}`
+    codigo: String.raw`
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Nome & Nota & Turma \\
+    \hline
+    Leandro & 9 & A \\
+    \hline
+    Andréa & 10 & B \\
+    \hline
+    \end{tabular}
+    `
   },
 
 
 
   {
-    titulo: "Inserir uma imagem",
-    descricao: "Adicione uma imagem ao documento.",
+    titulo: "Inserir uma figura",
+    descricao: "Adicione uma figura ao documento. Cuidado ao copiar e colar, pois é necessário ter a imagem no mesmo diretório do arquivo .tex.",
     categoria: "Imagens",
-    codigo: String.raw`\usepackage{graphicx}
+    codigo: String.raw
+    `% PREAMBULO %
+    \usepackage{float} % Usado para akustar as imagens na posição que deseja
 
-% No corpo do documento:
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.6\textwidth]{imagem.png}
-  \caption{Legenda da imagem}
-\end{figure}`
+    % CORPO DO DOCUMENTO
+    \begin{figure}[H] % H usado para ajustar a imagem exatamente onde você coloc'ou no texto 
+        \centering % Centralizando imagem
+        \includegraphics[scale=0.3]{foto.png} % colocando imagem e uma escala
+        \caption{Logo oficial.}
+        \label{fig:placeholder}
+    \end{figure}`
   },
 
 
@@ -142,8 +166,122 @@ Nome & Fórmula \\ \hline
     titulo: "Configurar margens",
     descricao: "Defina as margens da página.",
     categoria: "Estrutura",
-    codigo: String.raw`\usepackage[a4paper, margin=2cm]{geometry}`
+    codigo: String.raw`
+    \usepackage{geometry}
+    % Configuração das margens do documento
+    \geometry{
+    top=3cm,
+    bottom=2cm,
+    left=3cm,
+    right=2cm
+    
+   
+  `
+  },
+
+  {
+    titulo: "Referências bibliográficas",
+    descricao: "Crie um documento .bib para gerenciar suas referências. Copie e cole no corpo do documento.bib. Depois adicione os comando \cite{chave} no corpo do documento e \bibliography{arquivo.bib} no final do documento.",
+    categoria: "Estrutura",
+    codigo: String.raw`
+    @article{euler1953leonhard,
+    title={Leonhard Euler and the K{\"o}nigsberg bridges},
+    author={Euler, Leonhard},
+    journal={Scientific American},
+    volume={189},
+    number={1},
+    pages={66--72},
+    year={1953},
+    publisher={JSTOR}
+    
+    % Recorte (ctrl+x) e cole no corpo do documento .tex a apartir daqui
+    Leonhard Euler, provado em \cite{euler1953leonhard}, resolveu o famoso problema das Sete Pontes de Königsberg em 1736, demonstrando que é impossível atravessar todas as sete pontes da cidade (atual Kaliningrado, Rússia) apenas uma vez e retornar ao ponto de partida.
+
+    \bibliographystyle{plain} % estilo usado para mostar 
+    \bibliography{referencia} % buscando o arquivo .bib
+     
+    `
+  },
+
+  {
+    titulo: "Caixas coloridas",
+    descricao: "Crie caixas com cores diferentes para destacar informações importantes.",
+    categoria: "Estrutura",
+    codigo: String.raw`
+    \usepackage{tcolorbox} % PREAMBULO
+
+    \newtcolorbox{caixa}{
+    colback=blue!10,
+    colframe=blue!70!black,
+    arc=2mm,
+    boxrule=0.8pt,
+    width=8cm,
+    title=Caixa azul
+}
+% CORPO DO DOCUMENTO
+
+
+\begin{caixa}
+    Esta é uma pequena caixa colorida!
+\end{caixa} `
+  },
+
+  {
+    titulo: "Sumarios e Índices",
+    descricao: "Crie sumários e índices para organizar seu documento.",
+    categoria: "Listas",
+    codigo: String.raw`\documentclass[10pt,a4paper]{article} % Estilo e opções do documento
+
+    \usepackage{graphicx} % Required for inserting images
+    \usepackage[brazil]{babel} % Linguagem
+    \usepackage{graphicx} 
+    \usepackage{amsmath, amssymb} % Fórmulas matemáticas
+    \usepackage{geometry} % Margens do documento
+    \usepackage[utf8]{inputenc} % Acentuação do Português
+
+    \title{Oficina LaTeX} 
+    \author{Andréa, Leandro, Juan e Jenerson}
+    \date{October 2026}
+
+    \begin{document} %  Começo da parte visual do documento
+
+    \maketitle % Chamando o titulo e todos seus complementos
+
+    \tableofcontents % Criando sumário do documento
+    \newpage % Criando uma página nova para a digitação do documento
+
+    \section{Primeira seção} % Iniciando uma seção no documento 
+        \subsection{Primeira}
+            \subsubsection{A}
+            \subsubsection{B}
+            \subsubsection{C}
+        \subsection{Segunda}
+            \subsubsection{A}
+            \subsubsection{B}
+            \subsubsection{C}
+        \subsection{Terceira}
+            \subsubsection{A}
+            \subsubsection{B}
+            \subsubsection{C}
+    \section{Segunda seção} % Iniciando uma seção no documento 
+        \subsection{Primeira}
+            \subsubsection{A}
+            \subsubsection{B}
+            \subsubsection{C}
+        \subsection{Segunda}
+            \subsubsection{A}
+            \subsubsection{B}
+            \subsubsection{C}
+        \subsection{Terceira}
+            \subsubsection{A}
+            \subsubsection{B}
+            \subsubsection{C}
+
+    \end{document} % Fim da parte visual do documento
+ `
   }
+
+
 ];
 
 
