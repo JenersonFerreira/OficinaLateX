@@ -280,6 +280,222 @@ const exemplos = [
     \end{document} % Fim da parte visual do documento
  `
   }
+  ,
+
+  {
+    titulo: "Desafio",
+    descricao: "Copie e cole o código abaixo em um novo documento .tex para ver o resultado final.",
+    categoria: "Estruitura",
+    codigo: String.raw`
+    \documentclass[10pt,a4paper]{article}
+
+% Idioma e codificação
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+
+% Página e tipografia
+\usepackage[margin=1.35cm]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% Matemática, tabelas e gráficos
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% Cores e legendas
+\usepackage{xcolor}
+\usepackage{caption}
+\captionsetup{hypcap=false}
+
+% Texto em colunas
+\usepackage{multicol}
+\setlength{\columnsep}{0.75cm}
+
+% Links e referências
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!45!black,
+}
+
+% Nomes em português
+\renewcommand{\contentsname}{Sumário}
+\renewcommand{\refname}{Referências}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabela}
+\renewcommand{\listtablename}{Lista de Tabelas}
+\renewcommand{\listfigurename}{Lista de Figuras}
+
+% Espaçamento
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0pt}
+\setlength{\abovecaptionskip}{3pt}
+\setlength{\belowcaptionskip}{1pt}
+
+\begin{document}
+
+% ============================================================
+% PÁGINA 1: CAPA
+% ============================================================
+\thispagestyle{empty}
+
+\begin{center}
+  \vspace*{1.0cm}
+  {\large UNIVERSIDADE FEDERAL FLUMINENSE\par}
+  \vspace{0.25cm}
+  {\normalsize Oficina de \LaTeX\par}
+
+  \vfill
+
+  {\Huge\bfseries Estimativa observacional\par}
+  \vspace{0.2cm}
+  {\Huge\bfseries da temperatura solar\par}
+  \vspace{0.7cm}
+  {\large Aprendendo \LaTeX\ por meio da astronomia\par}
+
+  \vfill
+
+  \begin{tabular}{rl}
+    \textbf{Estudante:} & Juan Carlos Arroyave \\
+    \textbf{Professores:} & Andréa, Leandro, Juan e Jenerson \\
+    \textbf{Atividade:} & Trabalho final da oficina
+  \end{tabular}
+
+  \vfill
+
+  Niterói -- RJ\\
+  2026
+\end{center}
+
+\vspace{0.6cm}
+\hrule
+\vspace{0.35cm}
+
+% ============================================================
+% PÁGINA 2: SUMÁRIO E LISTAS
+% ============================================================
+\newpage
+\setcounter{page}{2}
+{\small
+\tableofcontents
+\listoftables
+\listoffigures
+}
+
+% ============================================================
+% PÁGINA 3: TEXTO, EQUAÇÕES, TABELA, FIGURA E REFERÊNCIAS
+% ============================================================
+\newpage
+\setcounter{page}{3}
+%\begin{multicols}{2} %Queria fazer a dois colunas tipo artigo mas desisti
+
+\section{Introdução}\label{sec:introducao}
+
+Uma estrela emite energia em muitos comprimentos de onda. Quando seu espectro contínuo é aproximadamente térmico, a posição do máximo permite estimar sua \emph{temperatura efetiva}. Essa relação, conhecida como lei do deslocamento de Wien \cite{wien1897}, não é exclusiva do Sol: ela pode ser aplicada a outras estrelas que sejam razoavelmente aproximadas por corpos negros.
+
+Neste trabalho, usamos medições realizadas fora da atmosfera terrestre pelo instrumento SIM da missão SORCE. Como a distância entre o Sol e o detector apenas multiplica todo o espectro pelo mesmo fator geométrico, ela altera a amplitude observada, mas não a posição do máximo.
+
+\subsection{Dados observacionais}\label{subsec:dados}
+
+O produto SORCE--SIM TAV fornece médias diárias da irradiância espectral solar, referidas à distância de $1\,\mathrm{UA}$ \cite{sorce}. Selecionamos o espectro de 14 de dezembro de 2008 e calculamos a média das medições em seis intervalos de $50\,\mathrm{nm}$. Esse agrupamento reduz as oscilações causadas por linhas de absorção e torna o máximo do contínuo mais visível. \\
+\begin{minipage}{\columnwidth}
+\begin{center}
+\footnotesize
+\begin{tabular}{ccc}
+\toprule
+Faixa (nm) & Centro (nm) & $\overline I_\lambda$ \\
+\midrule
+400--450 & 425 & 1,7615 \\
+450--500 & 475 & 2,0385 \\
+500--550 & 525 & 1,9060 \\
+550--600 & 575 & 1,8373 \\
+600--650 & 625 & 1,6692 \\
+650--700 & 675 & 1,5009 \\
+\bottomrule
+\end{tabular}
+\captionof{table}{Médias obtidas do espectro SORCE--SIM.}
+\label{tab:dados}
+\end{center}
+\end{minipage}
+\\ \\
+Os valores da Tabela~\ref{tab:dados} são médias calculadas a partir dos dados observacionais e não valores gerados supondo previamente uma temperatura. A Figura~\ref{fig:espectro} mostra os mesmos dados e uma interpolação local perto do máximo, onde $\overline I_\lambda$ tem unidades de medição $\mathrm{W\,m^{-2}\,nm^{-1}}$.
+
+\subsection{Estimativa da temperatura}\label{subsec:resultado}
+
+Uma parábola ajustada aos três pontos próximos ao pico possui a forma
+\begin{equation}
+ \overline I_\lambda=a\lambda^2+b\lambda+c,
+ \qquad
+ \lambda_{\max}=-\frac{b}{2a}\approx484\,\mathrm{nm}.
+ \label{eq:maximo}
+\end{equation}
+Pela lei do deslocamento de Wien,
+\begin{equation}
+ T=\frac{2{,}898\times10^{-3}}{\lambda_{\max}}
+   \approx5{,}99\times10^3\,\mathrm{K}.
+ \label{eq:wien}
+\end{equation}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.98\columnwidth,
+  height=4.15cm,
+  xlabel={$\lambda$ (nm)},
+  ylabel={$\overline I_\lambda$ ($\mathrm{W\,m^{-2}\,nm^{-1}}$)},
+  xmin=400,xmax=700,
+  ymin=1.4,ymax=2.12,
+  grid=major,
+  tick label style={font=\scriptsize},
+  label style={font=\scriptsize},
+]
+\addplot[blue!65!black,very thick,mark=*] coordinates {
+  (425,1.7615) (475,2.0385) (525,1.9060)
+  (575,1.8373) (625,1.6692) (675,1.5009)
+};
+\addplot[red!70!black,dashed,thick,domain=425:525,samples=60]
+  {-0.0000818865*x^2+0.0792374*x-17.1237};
+\end{axis}
+\end{tikzpicture}
+\captionof{figure}{Médias observadas (azul) e interpolação próxima ao máximo (vermelho).} \label{fig:espectro}
+\end{center}
+
+\section{Conclusão}\label{sec:conclusao}
+
+A estimativa da Equação~\eqref{eq:wien} é cerca de $3{,}8\%$ superior à temperatura efetiva solar de referência, $5772\,\mathrm{K}$ \cite{prsa2016}. A diferença é esperada: o Sol não é um corpo negro perfeito, e o agrupamento em faixas limita a localização do máximo. Ainda assim, o resultado mostra que um espectro realmente observado permite recuperar a ordem correta da temperatura sem pressupô-la no cálculo.
+
+\begin{thebibliography}{9}
+\footnotesize
+
+\bibitem{wien1897}
+W. Wien.
+\newblock On the division of energy in the emission-spectrum of a black body.
+\newblock \emph{Philosophical Magazine}, 43:214--220, 1897.
+
+\bibitem{sorce}
+J. Harder.
+\newblock \emph{SORCE SIM Level 3 TSIS-Adjusted Values Solar Spectral Irradiance 24-Hour Means V002}.
+\newblock Greenbelt, MD, USA, Goddard Earth Sciences Data and Information Services Center (GES DISC), 2021.
+
+\bibitem{prsa2016}
+A. Pr\v{s}a et al.
+\newblock Nominal values for selected solar and planetary quantities:
+IAU 2015 Resolution B3.
+\newblock \emph{The Astronomical Journal}, 152(2):41, 2016.
+
+\end{thebibliography}
+
+%\end{multicols}
+
+\end{document}
+
+ `
+  }
 
 
 ];
